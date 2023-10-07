@@ -7,7 +7,6 @@ Water_Monster::Water_Monster() {
 Water_Monster::Water_Monster(int npe) {
     set_number_people_eaten(npe);
 }
-
 int Water_Monster::get_number_people_eaten() const {
     return number_people_eaten;
 }
