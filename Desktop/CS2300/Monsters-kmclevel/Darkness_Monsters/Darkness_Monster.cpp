@@ -13,6 +13,10 @@ int Darkness_Monster::get_number_of_eyes() const {
     return number_of_eyes;
 }
 
+void Darkness_Monster::force_number_of_eyes(int forcedEyes) {
+    number_of_eyes = forcedEyes;
+}
+
 void Darkness_Monster::set_number_of_eyes(int noe) {
     if (noe < 2 || noe > MAX_NUMBER_EYES) {
         noe = MAX_NUMBER_EYES;
@@ -22,5 +26,13 @@ void Darkness_Monster::set_number_of_eyes(int noe) {
 
 // TODO: Implement poke_eye method here
 bool Darkness_Monster::poke_eye() {
-    return false;
+    if (number_of_eyes > 0) {
+        number_of_eyes--;
+        return true;
+    }
+    else {
+        number_of_eyes = rand() % (MAX_NUMBER_EYES - 4) + 5;
+        return false;
+    }
+
 }

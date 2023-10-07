@@ -52,8 +52,32 @@ bool test_Darkness_Monster() {
         cout << "FAILED negative test case" << endl;
     }
     // TODO: Test poke_eye method
-    cout << "FAILED: Did not add Darkness Monster test cases" << endl;
-    passed = false;
+    // test one
+    cm2.set_number_of_eyes(15); // use a number of eyes to make sure we are properly checking/decrementing
+    cm2.poke_eye();
+    if (cm2.get_number_of_eyes() != 14) { // if we didn't in fact decrement
+        passed = false;
+        cout << "FAILED eye poking test case" << endl; // return in a fashion like all other test cases
+    }
+    cout << cm2.poke_eye() << endl;
+    // Test two; lets make sure the other branch of our conditional in the poke_eye function works.
+    cm2.set_number_of_eyes(0); // In this case, we should reset the number of eyes.
+    cm2.poke_eye();
+    if (cm2.get_number_of_eyes() == 0) { // Check that we reach the else statement and reset the number of eyes.
+        passed = false;
+        cout << "FAILED: eye poking does not reset number of eyes." << endl;
+    }
+
+    // Test three; make sure that we do in fact return false if there are no eyes left to poke.
+    cm2.set_number_of_eyes(0); // In this case, we should return false, because there are no eyes to poke.
+    // created my own method to force the number of eyes to be zero so that we can test the return value
+    cm2.force_number_of_eyes(0);
+    if (cm2.poke_eye()) { // if it is true then we have failed the test.
+        cout << cm2.get_number_of_eyes() << endl;
+        passed = false;
+        cout << "FAILED: We did not return false when num_eyes equals zero." << endl;
+    }
+
     return passed;
 }
 

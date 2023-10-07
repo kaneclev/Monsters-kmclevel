@@ -2,6 +2,7 @@
 #define DARKNESS_MONSTER_H
 
 #include <string>
+#include <iostream>
 
 class Darkness_Monster {
 public:
@@ -49,6 +50,8 @@ public:
      */
     // TODO: Implement this method in Darkness_Monster.cpp
     virtual bool poke_eye();
+
+    void force_number_of_eyes(int forcedNum);
 
     // pure virtual method to return a scary string
     virtual std::string scare() = 0;
