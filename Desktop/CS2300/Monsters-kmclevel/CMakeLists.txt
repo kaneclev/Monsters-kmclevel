@@ -17,12 +17,12 @@ add_executable(Darkness_Monster
         Darkness_Monsters/Darkness_Monster.cpp
         Darkness_Monsters/Closet_Monster.cpp
         Darkness_Monsters/Under_Bed_Monster.cpp
-        Darkness_Monsters/Darkness_Monster_Main.cpp)
+        Darkness_Monsters/Darkness_Monster_Main.cpp Sky_Monsters/Sky_Monster.cpp Sky_Monsters/Sky_Monster.h)
 add_executable(Darkness_Monster_Testing
         Darkness_Monsters/Darkness_Monster.cpp
         Darkness_Monsters/Closet_Monster.cpp
         Darkness_Monsters/Darkness_Monster_Testing.cpp
         Darkness_Monsters/Under_Bed_Monster.cpp)
 #TODO: Uncomment this line once you create Sky_Monster.h and Sky_Monster.cpp in the Sky_Monsters folder
-#add_executable(Sky_Monster_Testing Sky_Monsters/Sky_Monster.cpp Sky_Monsters/Cloud_Monster.cpp Sky_Monsters/Comet_Monster.cpp Sky_Monsters/Sky_Monster_Testing.cpp)
+add_executable(Sky_Monster_Testing Sky_Monsters/Sky_Monster.cpp Sky_Monsters/Cloud_Monster.cpp Sky_Monsters/Comet_Monster.cpp Sky_Monsters/Sky_Monster_Testing.cpp)
 

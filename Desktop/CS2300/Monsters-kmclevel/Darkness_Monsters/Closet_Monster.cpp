@@ -22,5 +22,12 @@ bool Closet_Monster::is_open() const {
 
 // TODO: Implement the scare method here
 string Closet_Monster::scare() {
-    return "BOO!!!!!!!!!!!!";
+    if (door_is_open) { // then we need to slam the door closed
+        door_is_open = false;
+        return "*Slams  door*";
+    }
+    else { // door is already closed so no bool change necessary, just knock on the door
+        return "*Knocks on door*";
+    }
+
 }

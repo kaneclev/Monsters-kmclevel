@@ -99,8 +99,20 @@ bool test_Closet_Monster() {
         cout << "FAILED default constructor test case" << endl;
     }
     // TODO: test scare method
-    cout << "FAILED: Did not add Closet Monster test cases" << endl;
-    passed = false;
+    // First check teh case in which the door is open.
+    cm.open_door();
+    cm.scare();
+    if (cm.is_open()) {
+        passed = false;
+        cout << "FAILED scare test case; door shouldnt be open" << endl;
+    }
+
+    // Test two: in the case that the door is closed.
+    cm.scare();
+    if(cm.is_open()) {
+        passed = false;
+        cout << "FAILED scare test case; door shouldnt be open" << endl;
+    }
     return passed;
 }
 
@@ -117,7 +129,30 @@ bool test_Under_Bed_Monster() {
         cout << "FAILED default constructor test case" << endl;
     }
     // TODO: test scare method
-    cout << "FAILED: Did not add Under Bed Monster test cases" << endl;
-    passed = false;
+    // Test case 1:
+    for (int i = 0; i < 5; i++) { // check and make sure that calling it doesnt return nothing.
+        std::string scareMessage = ubm2.scare(); // grab the string that scare() returns
+        std::cout << "Scare #" << i+1 << ": " << scareMessage << std::endl; //
+        if(scareMessage.empty()) {
+            cout << "FAILED scare method by empty string" << endl;
+            passed = false;
+        }
+    }
+    // Test Case 2: Check and make sure it is actually random
+    int repeatCount = 0;
+    for (int i = 0; i < 100; i++) { // Loop through and repeatedly generate 'random' responses.
+        std::string scareMessage = ubm2.scare();
+        std::string newMessage = ubm2.scare();
+        if(scareMessage == newMessage) { // If they are equal, increment repeatcount.
+            repeatCount++;
+        }
+        if (repeatCount == 100) { // Too many repeats to just be naturally random.
+            passed = false;
+        }
+        std::cout << "Scare #" << i+1 << ": " << scareMessage << std::endl; // Visual output.
+        std::cout << "Scare #" << i+1 << ": " << newMessage << std::endl;
+        std::cout << repeatCount << endl;
+    }
+
     return passed;
 }
